@@ -8,7 +8,8 @@ RUN apt-get update -y && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update -y && \   
     apt-get install -y \
-    yarn
+    yarn && \
+    yarn global add @gridsome/cli
     
 ENV APP_DIR=/code
 WORKDIR $APP_DIR
@@ -16,7 +17,7 @@ WORKDIR $APP_DIR
 ADD package.json package.json
 ADD yarn.lock yarn.lock
 RUN yarn install
-
+RUN gridsome create my-gridsome-site 
 ADD . $APP_DIR
 
 CMD [ "node", "server.js" ]
