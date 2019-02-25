@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lan="en">
+ <head>
+ <meta charset="utf-8"/>    
+  <title>Vue test</title>
+  <script src="./js/vue.min.js"></script>
+ </head>
+ <body>
+    <div id="app">
+        {{message}}
+        <input type="text" v-model="message">
+        
+        <p>Reverse message: "{{reverseFirstName}}"</p>
+
+
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="secondName">
+
+        <p>{{fullName}}</p>
+
+        <button v-on:click="counter += 1">Add 1</button>
+        
+        <p>The button was clicked {{counter}} times.</p>
+
+        <button v-on:click="greet">Greet</button>
+        
+    </div>
+        <script>
+            Vue.config.devtools = true
+           var vm = new Vue({
+                el: '#app',
+                created: function(){
+                console.log(this.$el);
+                },
+                mounted(){
+                console.log(this.$el);
+                },
+                data: {
+                    message: 'Hello world!',
+                    firstName: 'Welcome',
+                    secondName: 'to Vuejs!',
+                    counter: 0,
+                    name: 'Vue.js'
+                },
+                computed: {
+                    fullName: function() {
+                        return this.firstName + ' ' + this.secondName
+                    },
+                    reverseFirstName: function() {
+                        return this.fullName.split('').reverse().join('')
+                    }
+                },
+                methods:{
+                    greet: function(event) {
+                        alert('Hallo ' + this.name + ' !' )
+                        if (event) {
+                            alert(event.target.tagName)
+                        }
+                    }
+                }
+                
+            });
+            vm.greet()
+        </script>
+ </body>
+</html>

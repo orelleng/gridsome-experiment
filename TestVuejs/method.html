@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lan="en">
+ <head>
+ <meta charset="utf-8"/>    
+  <title>Vue test</title>
+  <link href="styles.css" rel="stylesheet"/>
+  <script src="./js/vue.min.js"></script>
+ </head>
+ <body>
+    <div id = "#demo">
+        <h3>Computed Properties</h3>
+        <button v-on:click="a++">Add to A</button>
+        <button v-on:click="b++">Add to B</button>
+        <p>A - {{a}}</p>
+        <p>B - {{b}}</p>
+        <p> Age + A = {{ addToA() }}</p>
+        <p> Age + B = {{ addToB() }}</p>
+    </div>
+    <script>
+        new Vue({
+            el : '#demo',
+            data: {
+                age: 20,
+                a: 0,
+                b: 0
+            },
+            methods: {
+                addToA: function() {
+                    return this.a + this.age;
+                },
+                addToB: function() {
+                    return this.b + this.age;
+                }
+                
+            }
+        });
+    </script>
+ </body>
+</html>
