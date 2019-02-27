@@ -23,10 +23,12 @@ query {
 
 <style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: "Open Sans","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
   padding:0;
   line-height: 1.5;
+  font-weight: 400;
+  background-color: #e6e5e5;
 }
 
 .layout {
@@ -39,9 +41,19 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
+  align-items:center;
+  margin-bottom: 40px;
+  height: 120px;
+  background-color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+  margin-bottom: 30px;
+  height: 100px;
+  background-color: schwarz;
 }
 
 .nav__link {
